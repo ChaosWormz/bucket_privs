@@ -134,9 +134,11 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
                                         -- no spill priv. Allow emptying to origin liquid.
                                         if not ndef or ndef.name ~= source then
                                                 minetest.log("action", user.get_player_name(user) .. " is not allowed to spill " .. source .. spill_xyz)
+                                                minetest.chat_send_player(user.get_player_name(user),"DENIED! You don't have spill privs.")
                                                 return
                                         else
                                                 minetest.log("action", user.get_player_name(user) .. " empties bucket of " .. source .. spill_xyz)
+                                                minetest.chat_send_player(user.get_player_name(user),"DENIED! You don't have spill privs.")
                                         end
                                 end
                                 return {name="bucket:bucket_empty"}
