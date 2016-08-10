@@ -15,6 +15,8 @@ minetest.register_privilege("spill", "Can empty buckets")
 -- To deny singleplayer the spill privilege (for local testing):
 --minetest.register_privilege("spill", {description = "Can empty buckets",give_to_singleplayer = false})
  
+dofile(minetest.get_modpath("bucket_privs") .. "/nosources.lua")
+
 minetest.register_craft({
         output = 'bucket:bucket_empty 1',
         recipe = {
