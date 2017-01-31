@@ -97,7 +97,8 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
                                         return ndef.on_rightclick(
                                                 pointed_thing.under,
                                                 node, user,
-                                                itemstack) or itemstack
+                                                itemstack,
+                                                pointed_thing) or itemstack
                                 end
  
                                 local place_liquid = function(pos, node, source, flowing)
