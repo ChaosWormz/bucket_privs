@@ -71,9 +71,15 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
                 itemname = itemname,
         }
         bucket.liquids[flowing] = bucket.liquids[source]
- 
+
         if itemname ~= nil then
+                local grp     
+                if string.find(itemname, "water") then
+                        grp = {tool = 1, water_bucket = 1}
+                end
+
                 minetest.register_craftitem(":"..itemname, {
+                        groups = grp,
                         description = name,
                         inventory_image = inventory_image,
                         stack_max = 1,
