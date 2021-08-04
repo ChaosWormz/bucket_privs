@@ -82,5 +82,17 @@ if minetest.get_modpath("technic") then
             else return minetest.chat_send_player(placer:get_player_name(), "Cannot place spreading nodes without spill") end
         end,
     })
+    
+     minetest.override_item("technic:hv_nuclear_reactor_core",
+    {
+        on_place = function(itemstack, placer, pointed_thing) 
+            if minetest.get_player_privs(placer:get_player_name()).spill then       
+                return minetest.item_place(itemstack, placer, pointed_thing)
+            else return minetest.chat_send_player(placer:get_player_name(), "Cannot place spreading nodes without spill") end
+        end,
+    })
+
 end
+
+--
 
